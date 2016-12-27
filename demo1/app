@@ -1,0 +1,19 @@
+// koa初见
+var koa = require('koa')
+var app = koa()
+
+app.use(function *(){
+  var path = this.path;
+
+  this.body = path;
+})
+
+// 中间件必须是generator function 即 function *(){}
+// 其中this指向用户当前的请求
+
+app.listen(3000)
+
+/*
+ *  var http = require('http')
+ *  http.createServer(app.callback()).listen(3000)
+ */
